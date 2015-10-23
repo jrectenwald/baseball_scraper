@@ -1,0 +1,117 @@
+team
+  -has_many players
+
+
+player
+  -has_many plays 
+  -belongs_to team
+  -has_many
+
+pitcher_stats
+  -belongs_to player
+  -has_many pitches
+  :career_pitches
+  :
+
+
+batter_stats
+  -belongs_to player
+  -has_many at_bats
+  :runs
+
+
+game
+(inning_all.xml)
+  -has_many teams
+  -has_many players through teams
+  :id
+  :date
+  :location
+
+inning
+(inning_all.xml)
+  -has_many at_bats
+  -belongs_to game
+  -has_many players
+  :id
+  :number
+  :home_team
+  :away_team
+  :last_inning?
+
+
+
+at_bat 
+(inning_all.xml)
+  -belongs_to inning
+  :id
+  :num
+  :balls
+  :strikes
+  :batter_id
+  :pitcher_id
+  :description
+  :top_or_bottom
+
+pitch
+(inning_all.xml)
+  -belongs_to at_bat
+  -belongs_to inning through at_bat
+  -belongs_to game through inning
+  :id
+  :description
+  :pitch_id
+  :des
+  :type
+  :x
+  :y
+  :sv_id
+  :start_speed 
+  :end_speed 
+  :sz_top
+  :sz_bot
+  :pfx_x
+  :pfx_z 
+  :px
+  :pz
+  :x0 
+  :y0
+  :z0 
+  :vx0 
+  :vy0 
+  :vz0
+  :ax 
+  :ay 
+  :az 
+  :break_y 
+  :break_angle 
+  :break_length 
+  :pitch_type
+  :type_confidence
+  :zone 
+  :nasty 
+  :spin_dir 
+  :spin_rate
+  :cc
+  :mt
+
+# at_bat
+#   (inning_all.xml)
+#   -belongs_to pitch
+#   -belongs_to at_bat through pitch
+#   -belongs_to inning through at_bat
+#   -belongs_to game through inning
+#   :id
+#   :start
+#   :end
+#   :event
+
+
+
+# *** scraping steps
+# 1. follow "year" link
+# 2. follow "month" link
+# 3. follow "day" link
+# 4. iterate through any link that begins with gid
+# 5. 
+# 6. event_log
