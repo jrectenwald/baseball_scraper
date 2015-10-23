@@ -1,3 +1,9 @@
+http://www.rubydoc.info/gems/mechanize/Mechanize
+how do we navigate through each year to get to each piece of data
+
+
+
+
 team
   -has_many players
 
@@ -55,45 +61,12 @@ at_bat
 
 pitch
 (inning_all.xml)
+  -belongs_to pitcher
+  -belongs_to hitter
   -belongs_to at_bat
   -belongs_to inning through at_bat
   -belongs_to game through inning
-  :id
-  :description
-  :pitch_id
-  :des
-  :type
-  :x
-  :y
-  :sv_id
-  :start_speed 
-  :end_speed 
-  :sz_top
-  :sz_bot
-  :pfx_x
-  :pfx_z 
-  :px
-  :pz
-  :x0 
-  :y0
-  :z0 
-  :vx0 
-  :vy0 
-  :vz0
-  :ax 
-  :ay 
-  :az 
-  :break_y 
-  :break_angle 
-  :break_length 
-  :pitch_type
-  :type_confidence
-  :zone 
-  :nasty 
-  :spin_dir 
-  :spin_rate
-  :cc
-  :mt
+
 
 # at_bat
 #   (inning_all.xml)
