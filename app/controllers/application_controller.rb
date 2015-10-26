@@ -1,4 +1,8 @@
 class ApplicationController
-    set :views, Proc.new { File.join(root, "../views/") }
-    register Sinatra::Twitter::Bootstrap::Assets
+    
+  def run
+    app = MainMenu.new
+    app.menu
+  end
+
 end

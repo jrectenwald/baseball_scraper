@@ -1,7 +1,10 @@
-require './scraper.rb'
-require_relative './config/environment'
-require "bundler/gem_tasks"
-require_all "./"
+require './config/environment'
+require 'sinatra/activerecord/rake'
+require_all './app'
 
-require_relative './config/environment'
-require 'activerecord/rake'
+task :default => :migrate
+
+desc "Run migrations"
+task :migrate do
+  ActiveRecord::Migrator.migrate('db/migrate', ENV["VERSION"] ? ENV["VERSION"].to_i : nil)
+end

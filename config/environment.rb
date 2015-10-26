@@ -6,4 +6,4 @@ ActiveRecord::Base.establish_connection(
   :database => "db/baseball_stats.sqlite"
 )
 
-require_all "app"
+require_all "./app"

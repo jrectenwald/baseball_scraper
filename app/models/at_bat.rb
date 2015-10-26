@@ -5,8 +5,7 @@ class AtBat < ActiveRecord::Base
 ).xpath("//atbat")
   end
 
-  def 
-end
+  end
 
 
 

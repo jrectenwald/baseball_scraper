@@ -50,6 +50,9 @@ GEM
       rack (~> 1.4)
       rack-protection (~> 1.4)
       tilt (>= 1.3, < 3)
+    sinatra-activerecord (2.0.8)
+      activerecord (>= 3.2)
+      sinatra (~> 1.0)
     slop (3.6.0)
     sqlite3 (1.3.11)
     thread_safe (0.3.5)
@@ -73,6 +76,7 @@ DEPENDENCIES
   rake
   require_all
   shotgun
+  sinatra-activerecord
   sqlite3
   tux
 
