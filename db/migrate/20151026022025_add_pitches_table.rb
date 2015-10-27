@@ -1,7 +1,8 @@
 class AddPitchesTable < ActiveRecord::Migration
   def change
-    create_table(:pitches, id: false) do |t|
-      t.primary_key :id, :integer
+    create_table :pitches do |t|
+      t.integer :batter_id
+      t.integer :pitcher_id
       t.string :des
       t.string :des_es
       t.string :result

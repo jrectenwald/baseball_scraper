@@ -18,25 +18,31 @@ class PitchScraper
     pitches_array = []
     at_bats.each do |bat|
       bat.children.each do |pitch|
-        pitch_hash = pitch.each_with_object({}) do |att, hash|
-          if att[0] == "type" 
-            hash["result"] = att[1]
-          elsif att[0] == "id"
-            hash[att[0]] = att[1].to_i
-          else
-            hash[att[0]] = att[1]
+        unless pitch.name == "runner"
+          pitch_hash = pitch.each_with_object({}) do |att, hash|
+            if att[0] == "type" 
+              hash["result"] = att[1]
+            elsif att[0] == "id"
+              hash[:id] = att[1].to_i
+            else
+              hash[att[0]] = att[1]
+            end
+            hash[:batter_id] = bat.values[6]
+            hash[:pitcher_id] = bat.values[9]
           end
-          hash[:batter_id] = bat.values[6]
-          hash[:pitcher_id] = bat.values[9]
+          pitches_array << pitch_hash
         end
-        pitches_array << pitch_hash
       end 
     end 
     return pitches_array
   end
 
   def update_or_create_pitches
-    pitch = Pitch.create(get_pitches_data_array)
+    get_pitches_data_array.each do |pitch|
+      new_pitch = Pitch.new(pitch)
+      new_pitch.id = pitch[:id]
+      new_pitch.save
+    end
   end
 
   def iterate_through_pages
@@ -48,7 +54,3 @@ class PitchScraper
     innings_link = ""
   end
 end
-
-binding.pry
-
-x = 1

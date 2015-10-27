@@ -13,8 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20151026022025) do
 
-  create_table "pitches", id: false, force: :cascade do |t|
-    t.integer "id"
+  create_table "pitches", force: :cascade do |t|
+    t.integer "batter_id"
+    t.integer "pitcher_id"
     t.string  "des"
     t.string  "des_es"
     t.string  "result"
