@@ -2,28 +2,52 @@ http://www.rubydoc.info/gems/mechanize/Mechanize
 how do we navigate through each year to get to each piece of data
 
 
+“boxscore.xml
+An XML document that contains the box score for the game.
+players.txt
+A file that lists each player on each team. This file is very useful for mapping player ID numbers to player names.
+Inning files
+A directory containing an XML file describing what happened in each inning.
+PBP files
+A directory containing information on how each batter fared, down to the location of each pitch thrown and each ball hit.”
+
+Excerpt From: Joseph Adler. “Baseball Hacks.” page 395
+
+“Master
+This table contains biographical information about each player, including their full name, birth date, country of origin, and batting and throwing hands. Each player has a unique ID (called playerID) that is referenced from other tables in the database.
+Batting
+This table contains batting statistics for each player, on each team, during each season. Rows are uniquely identified by playerID, teamID, yearID, and stint.
+Pitching
+This table contains pitching statistics for each player, on each team, during each season. Rows are uniquely identified by playerID, teamID, yearID, and stint.
+Teams
+This table contains information on each team for each season, including aggregate batting statistics, pitching statistics, the team record, and post-season performance. Each line is uniquely referenced by yearID and teamID.”
+Excerpt From: Joseph Adler. “Baseball Hacks.” page 152
 
 
 team
   -has_many players
-
+  -yearID
+  -teamID
 
 player
   -has_many plays 
   -belongs_to team
-  -has_many
+  -playerID
+  -full_name
 
 pitcher_stats
   -belongs_to player
   -has_many pitches
-  :career_pitches
-  :
-
+  -playerID
+  -teamID
+  -yearID
 
 batter_stats
   -belongs_to player
   -has_many at_bats
-  :runs
+  -playerID
+  -teamID
+  -yearID
 
 
 game
