@@ -7,6 +7,7 @@ gem 'sqlite3'
 gem 'shotgun'
 gem 'nokogiri'
 gem 'json'
+gem 'mechanize'
 
 group :test do
   gem 'tux'

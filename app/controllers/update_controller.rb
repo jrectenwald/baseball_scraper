@@ -15,4 +15,10 @@ class UpdateController
     scraper.update_or_create_pitches
     puts "pitches updated!"
   end
+
+  def update_at_bats
+    scraper = AtBatScraper.new
+    scraper.update_or_create_at_bats
+    puts "at bats updated!"
+  end
 end

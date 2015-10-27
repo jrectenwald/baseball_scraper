@@ -1,5 +1,5 @@
 class PitchController < ApplicationController
   
-  #use to draw pitch data
+  #use to draw at_bat data
 
 end
