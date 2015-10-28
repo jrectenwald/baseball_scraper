@@ -21,4 +21,10 @@ class UpdateController
     scraper.update_or_create_at_bats
     puts "at bats updated!"
   end
+
+  def update_games
+    scraper = GameScraper.new
+    scraper.update_or_create_games
+    puts "games updated!"
+  end
 end

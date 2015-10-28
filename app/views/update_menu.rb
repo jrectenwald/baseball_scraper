@@ -20,6 +20,8 @@ class UpdateMenu
       update_controller.update_pitches
     when "at bats"
       update_controller.update_at_bats
+    when "games"
+      update_controller.update_games
     end
   end
 end

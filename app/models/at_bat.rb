@@ -1,5 +1,5 @@
 class AtBat < ActiveRecord::Base
-
+  belongs_to :inning
   has_many :pitches
 
 end

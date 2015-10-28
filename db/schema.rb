@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151027222621) do
+ActiveRecord::Schema.define(version: 20151028215238) do
 
   create_table "at_bats", force: :cascade do |t|
     t.integer "at_bat_num"
@@ -28,6 +28,18 @@ ActiveRecord::Schema.define(version: 20151027222621) do
     t.string  "top_or_bottom"
     t.integer "home_team_runs"
     t.integer "away_team_runs"
+    t.integer "inning_id"
+  end
+
+  create_table "games", force: :cascade do |t|
+  end
+
+  create_table "innings", force: :cascade do |t|
+    t.string  "number"
+    t.string  "away_team"
+    t.string  "home_team"
+    t.string  "next_inning"
+    t.integer "game_id"
   end
 
   create_table "pitches", force: :cascade do |t|
