@@ -1,7 +1,8 @@
 http://www.rubydoc.info/gems/mechanize/Mechanize
 how do we navigate through each year to get to each piece of data
 
-
+type into command line to run
+./bin/mlb_data run --trace
 
 
 team

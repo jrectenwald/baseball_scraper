@@ -29,6 +29,7 @@ class PitchScraper
             end
             hash[:batter_id] = bat.values[6]
             hash[:pitcher_id] = bat.values[9]
+            hash[:at_bat_num] = bat.values[0]
           end
           pitches_array << pitch_hash
         end

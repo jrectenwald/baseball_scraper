@@ -3,6 +3,7 @@ class AddPitchesTable < ActiveRecord::Migration
     create_table :pitches do |t|
       t.integer :batter_id
       t.integer :pitcher_id
+      t.integer :at_bat_num
       t.string :des
       t.string :des_es
       t.string :result
