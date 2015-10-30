@@ -3,6 +3,12 @@ require 'pry'
 class UpdateController
 
   def update_all
+    Pitch.destroy_all
+    AtBat.destroy_all
+    Inning.destroy_all
+    Game.destroy_all
+    scraper = GameScraper.new
+    scraper.update_or_create_games
     puts "everything and its mother updated!"
   end
 
@@ -23,8 +29,12 @@ class UpdateController
   end
 
   def update_games
+    Pitch.destroy_all
+    AtBat.destroy_all
+    Inning.destroy_all
+    Game.destroy_all
     scraper = GameScraper.new
-    scraper.update_or_create_games
+    scraper.page_navigation
     puts "games updated!"
   end
 end

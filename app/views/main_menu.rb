@@ -17,6 +17,11 @@ class MainMenu
         DataMenu.new
       when "help"
         HelpMenu.new
+      when "stats"
+        puts "Pitches: #{Pitch.all.count}"
+        puts "At Bats: #{AtBat.all.count}"
+        puts "Innings: #{Inning.all.count}"
+        puts "Games: #{Game.all.count}"
       end
 
       if command != "quit"
