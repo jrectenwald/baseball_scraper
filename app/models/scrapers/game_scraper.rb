@@ -27,17 +27,16 @@ class GameScraper
           new_at_bat_obj.top_or_bottom = t_or_b.name
           new_inning_obj.at_bats << new_at_bat_obj
           at_bat.children.each do |pitch|
-            Pitch.create
-            # pitch_hash = pitch_scraper.get_pitch_hash(pitch, at_bat)
-            # begin
-              # new_pitch_obj = Pitch.create_by(pitch_hash)
-              # new_pitch_obj = new_at_bat_obj.pitches.build(pitch_hash)
-              # new_pitch_obj.save
-            # rescue ActiveRecord::RecordNotUnique
-            #   binding.pry
-            #   puts "already exists\n\n\n\n\nold pitch:#{Pitch.all.des}\n\nnew pitch:#{pitch_hash[:des]}\n\n"
-            #   sleep(20)
-            # end
+            pitch_hash = pitch_scraper.get_pitch_hash(pitch, at_bat)
+            begin
+              if pitch_hash[:break_angle]
+                new_pitch_obj = Pitch.create(pitch_hash)
+                new_pitch_obj.at_bat_id = new_at_bat_obj.id
+                new_pitch_obj.save
+              end
+            rescue ActiveRecord::RecordNotUnique
+              binding.pry
+            end
           end
         end
       end

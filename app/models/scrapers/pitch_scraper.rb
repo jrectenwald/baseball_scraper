@@ -17,14 +17,14 @@ class PitchScraper
     pitch_hash = pitch.each_with_object({}) do |att, hash|
       if att[0] == "type" 
         hash["result"] = att[1]
-      elsif att[0] == "id"
-        hash[:id] = att[1].to_i
       else
-        hash[att[0]] = att[1]
+        hash[att[0].to_sym] = att[1..-1].join("_")
       end
       hash[:batter_id] = at_bat.values[6]
       hash[:pitcher_id] = at_bat.values[9]
       hash[:at_bat_num] = at_bat.values[0]
+      hash.delete(:id)
+      hash.delete(:event_num)
     end
   end
 
